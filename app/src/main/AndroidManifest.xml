@@ -21,7 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RekamMedisActivity" />
+        <activity android:name=".ResevasiActivity" />
+        <activity android:name=".AmbilAntrianActivity"></activity>
     </application>
 
 </manifest>
