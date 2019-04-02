@@ -40,10 +40,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:baselineAligned="false"
-                    android:text="Nomor Antrian Saat Ini"
+                    android:text="@string/nomor_antrian_saat_ini"
                     android:gravity="center"
                     android:textColor="@android:color/primary_text_light"
-                    android:textSize="20sp" />
+                    android:autoSizeMaxTextSize="20sp" />
             </TableRow>
 
 
@@ -57,7 +57,7 @@
                     android:id="@+id/noAntrian"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="14"
+                    android:text="@string/_14"
                     android:textColor="@android:color/black"
                     android:textSize="100sp"
                     android:textStyle="bold" />
@@ -77,15 +77,15 @@
         android:rowCount="2">
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/buttonAntrian"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
             android:layout_marginRight="50dp"
             android:background="@color/colorLogin"
-            android:text="Ambil Nomor Antrian"
+            android:text="@string/ambil_nomor_antrian"
             android:textColor="@android:color/white"
-            android:textSize="15dp" />
+            android:textSize="15sp" />
 
 
     </GridLayout>

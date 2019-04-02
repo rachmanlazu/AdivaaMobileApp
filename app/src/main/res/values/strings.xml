@@ -6,4 +6,13 @@
     <string name="medic_history">Rekam Medis</string>
     <string name="chat">Konsultasi</string>
     <string name="product">Produk</string>
+    <string name="login">Login</string>
+    <string name="ambil_nomor_antrian">Ambil Nomor Antrian</string>
+    <string name="_14">14</string>
+    <string name="nomor_antrian_saat_ini">Nomor Antrian Saat Ini</string>
+    <string name="perawatan">Perawatan :</string>
+    <string name="cuci_muka">Cuci Muka</string>
+    <string name="kurang_lebih">Kurang lebih</string>
+    <string name="silakan_datang_15_menit_sebelum_jam_periksa">Silakan datang 15 menit sebelum jam periksa</string>
+    <string name="nomor_antrian">Nomor Antrian :</string>
 </resources>
