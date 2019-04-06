@@ -15,4 +15,11 @@
     <string name="kurang_lebih">Kurang lebih</string>
     <string name="silakan_datang_15_menit_sebelum_jam_periksa">Silakan datang 15 menit sebelum jam periksa</string>
     <string name="nomor_antrian">Nomor Antrian :</string>
+    <string name="title_activity_test">test</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>
