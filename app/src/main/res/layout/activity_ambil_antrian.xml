@@ -15,7 +15,7 @@
         android:columnCount="1"
         android:columnOrderPreserved="false"
         android:padding="14dp"
-        android:rowCount="2">
+        android:rowCount="3">
 
         <android.support.v7.widget.CardView
             android:layout_width="0dp"
@@ -69,7 +69,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/noAntrian"
-                    android:text="Estimasi waktu 2 jam"
+                    android:text="Estimasi waktu menunggu 2 jam"
                     android:textColor="@android:color/black" />
 
             </LinearLayout>
@@ -97,6 +97,27 @@
             android:text="@string/ambil_nomor_antrian"
             android:textColor="@android:color/white"
             android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvJamOperasional"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
+                android:text="Waktu Operasional" />
+
+            <TextView
+                android:id="@+id/tvHariBuka"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:text="Senin-Sabtu : 09.00-17.00" />
+        </LinearLayout>
 
 
     </GridLayout>

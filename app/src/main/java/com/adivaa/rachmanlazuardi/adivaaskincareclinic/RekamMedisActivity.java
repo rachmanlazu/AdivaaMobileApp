@@ -9,5 +9,8 @@ public class RekamMedisActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rekam_medis);
+
+        //judul header
+        setTitle("Rekam Medis");
     }
 }

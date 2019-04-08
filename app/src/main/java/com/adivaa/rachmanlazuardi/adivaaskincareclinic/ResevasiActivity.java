@@ -14,6 +14,8 @@ public class ResevasiActivity extends AppCompatActivity {
         assert getSupportActionBar() !=null; //null check
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        //judul header
+        setTitle("Reservasi Antrian");
     }
 
     @Override

@@ -15,6 +15,9 @@ public class AmbilAntrianActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ambil_antrian);
 
+        //judul header
+        setTitle("Reservasi Antrian");
+
         btnAntrian = findViewById(R.id.buttonAntrian);
 
         btnAntrian.setOnClickListener(this);

@@ -1,15 +1,15 @@
 package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.widget.Button;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.CardView;
+import android.util.Log;
+import android.view.View;
 import android.widget.Toast;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,6 +24,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         rekam = findViewById(R.id.rekamMedis);
         konsul = findViewById(R.id.konsultasi);
         product = findViewById(R.id.produk);
+
+        //token get
+        SharedPreferences sharedpref = this.getSharedPreferences("token", Context.MODE_PRIVATE);
+        String token = sharedpref.getString("token", "defaultValue");
+        Log.d("Home", "token home" +token);
+        //
 
         reserve.setOnClickListener(this);
         rekam.setOnClickListener(this);
