@@ -44,31 +44,30 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = eMail.getText().toString();
                 String pwd = password.getText().toString();
-                loginUser(email,pwd);
+                loginUser(email, pwd);
             }
         });
     }
 
     private void loginUser(final String email, final String pwd) {
         String url = "http://10.0.2.2:8000/api/login";
-        Log.d("login", "email & passwrod" + email+ pwd);
+        Log.d("login", "email & passwrod" + email + pwd);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
-                new Response.Listener<String>()
-                {
+                new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         // response
-                        Log.d("Response", "berhasil" +response);
+                        Log.d("Response", "berhasil" + response);
                         try {
                             JSONObject obj = new JSONObject(response);
                             JSONObject sukses = obj.getJSONObject("success");
                             String token = sukses.getString("token");
-                            Log.d("Response", "token" +token);
-                            SharedPreferences sharedpref= getSharedPreferences("token",Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor= sharedpref.edit();
-                            editor.putString("token",token);
+                            Log.d("Response", "token" + token);
+                            SharedPreferences sharedpref = getSharedPreferences("token", Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedpref.edit();
+                            editor.putString("token", token);
                             editor.apply();
-                            Intent moveIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                            Intent moveIntent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(moveIntent);
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -76,20 +75,18 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 },
-                new Response.ErrorListener()
-                {
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
                         // error
-                        Log.d("Error.Response", "error" +String.valueOf(error));
-                        Toast.makeText(getApplicationContext(),"Email atau Password salah" , Toast.LENGTH_SHORT).show();
+                        Log.d("Error.Response", "error" + String.valueOf(error));
+                        Toast.makeText(getApplicationContext(), "Email atau Password salah", Toast.LENGTH_SHORT).show();
                     }
                 }
         ) {
             @Override
-            protected Map<String, String> getParams()
-            {
-                Map<String, String>  params = new HashMap<String, String>();
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
                 params.put("email", email);
                 params.put("password", pwd);
 
@@ -98,7 +95,5 @@ public class LoginActivity extends AppCompatActivity {
         };
         singleton.getInstance(this).addToRequestQueue(postRequest);
     }
-
-
 
 }
