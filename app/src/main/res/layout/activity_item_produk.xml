@@ -12,36 +12,36 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginRight="8dp"
-        android:src="@mipmap/ic_launcher_round" />
+        android:src="@drawable/adivaalogo" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/jenisProduk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Jenis  : " />
 
         <TextView
             android:id="@+id/namaProduk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nama : " />
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:text="Nama : Adivaa Sunscreen" />
 
         <TextView
             android:id="@+id/hargaProduk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Harga : " />
+            android:textColor="@android:color/black"
+            android:text="Harga : Rp 25.000" />
 
-        <TextView
-            android:id="@+id/stokProduk"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Stok    : " />
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:text="Pesan"
+            android:textColor="@android:color/white"
+            android:background="@color/colorLogin"/>
 
     </LinearLayout>
 

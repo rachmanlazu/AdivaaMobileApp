@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.produk:
-                Intent moveIntent = new Intent(getActivity(), ProdukActivity.class);
+                Intent moveIntent = new Intent(getActivity(), ItemProdukActivity.class);
                 startActivity(moveIntent);
                 break;
         }
@@ -93,7 +93,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void openWhatsApp() {
-        String smsNumber = "6289657011491"; //without '+'
+        String smsNumber = "6287870817600"; //without '+'
         try {
             Intent sendIntent = new Intent("android.intent.action.MAIN");
             sendIntent.setAction(Intent.ACTION_SEND);
