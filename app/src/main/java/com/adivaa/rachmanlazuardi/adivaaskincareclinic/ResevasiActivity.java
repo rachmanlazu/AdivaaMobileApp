@@ -28,6 +28,7 @@ public class ResevasiActivity extends AppCompatActivity {
         setTitle("Reservasi Antrian");
     }
 
+    //back button tittle bar
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){

@@ -3,7 +3,7 @@
     <string name="nav_open">Open</string>
     <string name="nav_close">Close</string>
     <string name="reservation">Reservasi</string>
-    <string name="medic_history">Rekam Medis</string>
+    <string name="medic_history">Riwayat Pasien</string>
     <string name="chat">Konsultasi</string>
     <string name="product">Produk</string>
     <string name="login">Login</string>
@@ -25,4 +25,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_riwayat_pasien">RiwayatPasien</string>
+    <string name="tab_text_1">Tab1</string>
+    <string name="tab_text_2">Tab2</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>

@@ -56,7 +56,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.rekamMedis:
-                Intent moveIntent = new Intent(getActivity(), RekamMedisActivity.class);
+                Intent moveIntent = new Intent(getActivity(), RiwayatPasien.class);
                 startActivity(moveIntent);
                 break;
         }
