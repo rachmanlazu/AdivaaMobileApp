@@ -17,7 +17,8 @@
         <activity android:name=".RiwayatPasien"/>
         <activity android:name=".ItemProdukActivity" />
         <activity android:name=".ProdukActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".SplashActivity" android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

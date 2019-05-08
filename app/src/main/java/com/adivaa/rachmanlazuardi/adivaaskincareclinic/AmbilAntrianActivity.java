@@ -37,7 +37,7 @@ public class AmbilAntrianActivity extends AppCompatActivity {
 
                 builder.setCancelable(true);
                 builder.setTitle("Apakah anda ingin mengambil nomor antrian?");
-                builder.setMessage("Anda harus menunggu sekitar 90 menit dalam 1 antrian");
+                builder.setMessage("Anda harus menunggu sekitar 60 menit dalam 1 antrian");
 
                 builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                     @Override

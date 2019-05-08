@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void loginUser(final String email, final String pwd) {
         String url = "http://10.0.2.2:8000/api/login";
-        Log.d("login", "email & passwrod" + email + pwd);
+        Log.d("login", "email & password" + email + pwd);
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
                     @Override
