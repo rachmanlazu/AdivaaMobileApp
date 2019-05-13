@@ -1,7 +1,10 @@
 package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 
 public class ProdukActivity extends AppCompatActivity {
@@ -10,6 +13,12 @@ public class ProdukActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_produk);
+
+        //token get
+        SharedPreferences sharedpref = this.getSharedPreferences("token", Context.MODE_PRIVATE);
+        String token = sharedpref.getString("token", "defaultValue");
+        Log.d("Produk", "token produk " +token);
+        //
 
         //back button tittle bar
         assert getSupportActionBar() !=null; //null check

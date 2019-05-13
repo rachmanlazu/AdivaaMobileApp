@@ -1,10 +1,13 @@
 package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -23,6 +26,12 @@ public class AmbilAntrianActivity extends AppCompatActivity {
         //back button tittle bar
         assert getSupportActionBar() !=null; //null check
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //token get
+        SharedPreferences sharedpref = this.getSharedPreferences("token", Context.MODE_PRIVATE);
+        String token = sharedpref.getString("token", "defaultValue");
+        Log.d("Reservasi", "token ambil antrian " +token);
+        //
 
         //judul header
         setTitle("Reservasi Antrian");

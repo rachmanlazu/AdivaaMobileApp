@@ -1,10 +1,13 @@
 package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +19,12 @@ public class ItemProdukActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_produk);
+
+        //token get
+        SharedPreferences sharedpref = this.getSharedPreferences("token", Context.MODE_PRIVATE);
+        String token = sharedpref.getString("token", "defaultValue");
+        Log.d("Item Produk", "token produk " +token);
+        //
 
         //judul header
         setTitle("Produk");

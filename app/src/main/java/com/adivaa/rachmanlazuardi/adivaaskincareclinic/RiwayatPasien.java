@@ -1,5 +1,7 @@
 package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -32,6 +34,12 @@ public class RiwayatPasien extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riwayat_pasien);
         Log.d(TAG, "onCreate: Starting.");
+
+        //token get
+        SharedPreferences sharedpref = this.getSharedPreferences("token", Context.MODE_PRIVATE);
+        String token = sharedpref.getString("token", "defaultValue");
+        Log.d("Riwayat Pasien", "token riwayat pasien " +token);
+        //
 
         mSectionPageAdapter = new SectionPageAdapter(getSupportFragmentManager());
 
