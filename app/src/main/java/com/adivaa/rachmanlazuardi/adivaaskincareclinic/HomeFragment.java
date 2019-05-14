@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.produk:
-                Intent moveIntent = new Intent(getActivity(), ItemProdukActivity.class);
+                Intent moveIntent = new Intent(getActivity(), ProdukActivity.class);
                 startActivity(moveIntent);
                 break;
         }

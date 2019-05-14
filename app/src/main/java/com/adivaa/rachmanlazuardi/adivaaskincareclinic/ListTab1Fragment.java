@@ -12,9 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.VolleyError;
 
@@ -25,12 +23,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Tab2Fragment extends Fragment {
-    private static final String TAG = "Tab2Fragment";
+public class ListTab1Fragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    private TextView tanggal, produk, jumlah;
+    private TextView tanggal, perawatan;
 
     private String token;
 
@@ -39,10 +36,16 @@ public class Tab2Fragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab2_fragment,container,false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.item_tab1_fragment, container, false);
 
-        recyclerView = view.findViewById(R.id.list_pembelian_produk);
+        recyclerView = view.findViewById(R.id.list_rekam_medis);
+
+        //token get
+        SharedPreferences sharedpref = this.getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
+        token = sharedpref.getString("token", "defaultValue");
+        Log.d("Produk", "token produk " +token);
+        //
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -56,17 +59,11 @@ public class Tab2Fragment extends Fragment {
     }
 
     public void getData(){
-        //token get
-        SharedPreferences sharedpref = this.getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
-        token = sharedpref.getString("token", "defaultValue");
-        Log.d("Produk", "token1 " +token);
-        //
-
         HashMap headers = new HashMap();
         headers.put("Authorization", "Bearer " + token);
 
-        String URI = "http://10.0.2.2:8000/api/pasien/getRiwayatPembelian";
-        mVolleyService.getDataHeadersVolley("GETPEMBELIANPRODUK", URI, headers);
+        String URI = "http://10.0.2.2:8000/api/pasien/getRekamMedis";
+        mVolleyService.getDataHeadersVolley("GETREKAMMEDIS", URI, headers);
     }
 
     void initVolleyCallback(){
@@ -76,27 +73,25 @@ public class Tab2Fragment extends Fragment {
                 System.out.println(response);
 
                 switch (requestType){
-                    case "GETPEMBELIANPRODUK":
-                        ArrayList<PembelianProdukModel> pembelianProdukList = new ArrayList<>();
+                    case "GETREKAMMEDIS":
+                        ArrayList<RekamMedisModel> rekamMedisList = new ArrayList<>();
                         JSONArray data = response.getJSONArray("data");
                         for (int i =0; i<data.length(); i++){
-                            JSONObject pembelianProduk = data.getJSONObject(i);
+                            JSONObject rekamMedis = data.getJSONObject(i);
 
-                            String Tanggal = pembelianProduk.getString("tanggal");
-                            String Produk = pembelianProduk.getString("nama_produk");
-                            String Jumlah = pembelianProduk.getString("jumlah");
+                            String Tanggal = rekamMedis.getString("tanggal");
+                            String Perawatan = rekamMedis.getString("nama_perawatan");
 
-                            PembelianProdukModel pembelianProdukModel = new PembelianProdukModel();
+                            RekamMedisModel rekamMedisModel = new RekamMedisModel();
 
-                            pembelianProdukModel.setTanggal(Tanggal);
-                            pembelianProdukModel.setProduk(Produk);
-                            pembelianProdukModel.setJumlah(Jumlah);
+                            rekamMedisModel.setTanggal(Tanggal);
+                            rekamMedisModel.setPerawatan(Perawatan);
 
-                            pembelianProdukList.add(pembelianProdukModel);
+                            rekamMedisList.add(rekamMedisModel);
                         }
 
-                        PembelianProdukAdapter pembelianProdukAdapter = new PembelianProdukAdapter(getContext(),pembelianProdukList);
-                        recyclerView.setAdapter(pembelianProdukAdapter);
+                        RekamMedisAdapter rekamMedisAdapter = new RekamMedisAdapter(getContext(),rekamMedisList);
+                        recyclerView.setAdapter(rekamMedisAdapter);
                 }
 
             }
@@ -144,4 +139,5 @@ public class Tab2Fragment extends Fragment {
 //
 //        builder.show();
 //    }
+
 }

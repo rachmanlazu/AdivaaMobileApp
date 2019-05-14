@@ -4,80 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
 
-    <RelativeLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/list_rekam_medis"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="8dp"
-        android:padding="5dp">
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tanggalPeriksa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:paddingLeft="10dp"
-            android:text="Tanggal      :"
-            android:textColor="@android:color/black"
-            />
-
-        <TextView
-            android:id="@+id/tglPeriksa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/tanggalPeriksa"
-            android:text="11"
-            android:textColor="@android:color/black"
-            />
-
-        <TextView
-            android:id="@+id/bulanPeriksa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/tglPeriksa"
-            android:text="Maret"
-            android:textColor="@android:color/black"
-            />
-
-        <TextView
-            android:id="@+id/tahunPeriksa"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@+id/bulanPeriksa"
-            android:text="2019"
-            android:textColor="@android:color/black"
-            />
-
-        <TextView
-            android:id="@+id/perawatan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/tglPeriksa"
-            android:layout_marginBottom="10dp"
-            android:paddingLeft="10dp"
-            android:text="@string/perawatan"
-            android:textColor="@android:color/black"
-            />
-
-        <TextView
-            android:id="@+id/jenisPerawatan"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tanggalPeriksa"
-            android:layout_marginLeft="5dp"
-            android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@id/perawatan"
-            android:text="Facial"
-            android:textColor="@android:color/black"
-            />
-
-    </RelativeLayout>
+    </android.support.v7.widget.RecyclerView>
 
 </LinearLayout>

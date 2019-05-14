@@ -15,6 +15,8 @@ import android.widget.Button;
 public class ItemProdukActivity extends AppCompatActivity {
     private Button btnAlertPesan;
 
+    private String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +24,7 @@ public class ItemProdukActivity extends AppCompatActivity {
 
         //token get
         SharedPreferences sharedpref = this.getSharedPreferences("token", Context.MODE_PRIVATE);
-        String token = sharedpref.getString("token", "defaultValue");
+        token = sharedpref.getString("token", "defaultValue");
         Log.d("Item Produk", "token produk " +token);
         //
 
