@@ -85,6 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         headers.put("Authorization", "Bearer " + token);
 
         String URI = "http://10.0.2.2:8000/api/pasien/getDetail";
+        //String URI = "http://192.168.43.68:8000/api/pasien/getDetail";
         mVolleyService.getDataHeadersVolley("GETPROFILE", URI, headers);
     }
 

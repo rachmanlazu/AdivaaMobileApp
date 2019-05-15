@@ -11,21 +11,57 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.VolleyError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 
 public class ResevasiActivity extends AppCompatActivity {
     private Button btnBantuan;
+    private String token;
+
+    private TextView noAntrianPasien, jamDatang, noAntrianSaatIni, namaPasien;
+
+    private Bundle bundle;
+    private AntrianModel model;
+
+    private IResult mResultCallback = null;
+    private VolleyService mVolleyService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reservasi);
 
+        bundle = getIntent().getExtras();
+        model = bundle.getParcelable("AntrianModel");
+
+        noAntrianPasien = findViewById(R.id.antrianCust);
+        jamDatang = findViewById(R.id.jam);
+        noAntrianSaatIni = findViewById(R.id.noAntrianSaatIni);
+        namaPasien = findViewById(R.id.namaPasienAntrian);
+
+        noAntrianPasien.setText(model.getNoAntrianPasien().toString());
+        jamDatang.setText(model.getJamDatang().toString());
+        noAntrianSaatIni.setText(model.getNoAntrianSaatIni().toString());
+
+        initVolleyCallback();
+        mVolleyService = new VolleyService(mResultCallback, getApplicationContext());
+
+
         //token get
         SharedPreferences sharedpref = this.getSharedPreferences("token", Context.MODE_PRIVATE);
-        String token = sharedpref.getString("token", "defaultValue");
-        Log.d("Home", "token home" +token);
+        token = sharedpref.getString("token", "defaultValue");
+        Log.d("Reservasi", "token reservasi " +token);
         //
+
+        getData();
+
 
         //back button tittle bar
         assert getSupportActionBar() !=null; //null check
@@ -42,6 +78,34 @@ public class ResevasiActivity extends AppCompatActivity {
                 openWhatsApp();
             }
         });
+    }
+
+    public void getData(){
+        HashMap headers = new HashMap();
+        headers.put("Authorization", "Bearer " + token);
+
+        String URI = "http://10.0.2.2:8000/api/pasien/getDetail";
+        mVolleyService.getDataHeadersVolley("GETPROFILE", URI, headers);
+    }
+
+    void initVolleyCallback() {
+        mResultCallback = new IResult() {
+            @Override
+            public void notifySuccess(String requestType, JSONObject response) throws JSONException {
+                System.out.println(response);
+
+                JSONObject data = response.getJSONObject("data");
+
+                String NamaPasien = data.getString("nama");
+
+                namaPasien.setText(NamaPasien);
+            }
+
+            @Override
+            public void notifyError(String requestType, VolleyError error) {
+
+            }
+        };
     }
 
     /**
@@ -87,7 +151,9 @@ public class ResevasiActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:
-                finish();
+                Intent moveIntent = new Intent(ResevasiActivity.this, MainActivity.class);
+                moveIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(moveIntent);
                 return true;
 
                 default:

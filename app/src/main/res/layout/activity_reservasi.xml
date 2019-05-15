@@ -56,7 +56,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/noAntrian"
+                        android:id="@+id/noAntrianSaatIni"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginTop="30dp"
@@ -85,7 +85,7 @@
                     android:background="@color/colorNamaPasien">
 
                     <TextView
-                        android:id="@+id/namaPasien"
+                        android:id="@+id/namaPasienAntrian"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -149,7 +149,7 @@
                         android:layout_toRightOf="@+id/imageView"
                         android:gravity="center_vertical"
                         android:paddingLeft="5dp"
-                        android:text="@string/kurang_lebih"
+                        android:text="Silakan datang pada jam:"
                         android:textColor="@android:color/black"
                         android:textSize="20dp" />
 
@@ -172,8 +172,7 @@
                         android:layout_below="@+id/textAntrian"
                         android:layout_toRightOf="@+id/jam"
                         android:gravity="center_vertical"
-                        android:paddingLeft="5dp"
-                        android:text="jam lagi"
+                        android:text=":00"
                         android:textColor="@android:color/black"
                         android:textSize="20dp" />
 

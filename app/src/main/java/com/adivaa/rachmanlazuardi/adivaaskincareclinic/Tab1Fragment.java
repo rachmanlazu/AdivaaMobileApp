@@ -83,8 +83,8 @@ public class Tab1Fragment extends Fragment {
                         for (int i =0; i<data.length(); i++){
                             JSONObject rekamMedis = data.getJSONObject(i);
 
-                            String Tanggal = rekamMedis.getString("created_at");
-                            String Perawatan = rekamMedis.getString("nama_perawatan");
+                            String Tanggal = rekamMedis.getString("tanggal");
+                            String Perawatan = rekamMedis.getString("perawatan");
 
                             RekamMedisModel rekamMedisModel = new RekamMedisModel();
 
@@ -106,41 +106,4 @@ public class Tab1Fragment extends Fragment {
             }
         };
     }
-
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        switch (item.getItemId()){
-//            case android.R.id.home:
-//                finish();
-//                return true;
-//
-//            default:
-//                return super.onOptionsItemSelected(item);
-//        }
-//    }
-
-//    @Override
-//    public void onItemClick(int position) {
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//
-//        builder.setCancelable(true);
-//        builder.setTitle("Apakah anda ingin membeli produk tersebut?");
-//        builder.setMessage("Jika Ya anda akan dihubungi oleh admin untuk informasi pemesanan selanjutnya");
-//
-//        builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                dialogInterface.cancel();
-//            }
-//        });
-//
-//        builder.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
-//            @Override
-//            public void onClick(DialogInterface dialogInterface, int i) {
-//                dialogInterface.cancel();
-//            }
-//        });
-//
-//        builder.show();
-//    }
 }

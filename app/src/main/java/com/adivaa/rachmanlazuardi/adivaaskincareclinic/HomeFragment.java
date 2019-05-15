@@ -16,8 +16,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.android.volley.VolleyError;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+
 public class HomeFragment extends Fragment implements View.OnClickListener {
     private CardView reserve, rekam, konsul, product;
+
+    private IResult mResultCallback = null;
+    private VolleyService mVolleyService;
+
+    private String token;
 
     @Nullable
     @Override
@@ -40,8 +52,62 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         });
         product.setOnClickListener(this);
 
+        //token get
+        SharedPreferences sharedpref = this.getActivity().getSharedPreferences("token", Context.MODE_PRIVATE);
+        token = sharedpref.getString("token", "defaultValue");
+
+        initVolleyCallback();
+        mVolleyService = new VolleyService(mResultCallback, getContext());
+
 
         return view;
+    }
+
+    public void getData(){
+        HashMap headers = new HashMap();
+        headers.put("Authorization", "Bearer " + token);
+
+        String URI = "http://10.0.2.2:8000/api/pasien/getAntrian";
+        mVolleyService.getDataHeadersVolley("GETANTRIAN", URI, headers);
+    }
+
+    void initVolleyCallback() {
+        mResultCallback = new IResult() {
+            @Override
+            public void notifySuccess(String requestType, JSONObject response) throws JSONException {
+                System.out.println(response);
+
+                JSONObject data = response.getJSONObject("data");
+
+                Integer NoAntrianPasien = data.getInt("nomor_antrian");
+                String Jam = data.getString("jam");
+                Integer NoAntrianSaatIni = data.getInt("nomor_antrian_saat_ini");
+
+                if (NoAntrianPasien==0){
+                    Intent moveIntent = new Intent(getActivity(), AmbilAntrianActivity.class);
+                    startActivity(moveIntent);
+                }
+                else {
+                    AntrianModel antrianModel = new AntrianModel();
+
+                    antrianModel.setNoAntrianPasien(NoAntrianPasien);
+                    antrianModel.setJamDatang(Jam);
+                    antrianModel.setNoAntrianSaatIni(NoAntrianSaatIni);
+
+                    Intent moveIntent = new Intent(getActivity(), ResevasiActivity.class);
+                    moveIntent.putExtra("AntrianModel", antrianModel);
+                    startActivity(moveIntent);
+                }
+
+
+            }
+
+
+            @Override
+            public void notifyError(String requestType, VolleyError error) {
+
+            }
+        };
     }
 
 
@@ -49,8 +115,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.reservasi:
-                Intent moveIntent = new Intent(getActivity(), AmbilAntrianActivity.class);
-                startActivity(moveIntent);
+
+                getData();
+
+
                 break;
         }
 

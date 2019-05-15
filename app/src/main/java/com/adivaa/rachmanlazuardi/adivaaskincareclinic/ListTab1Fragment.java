@@ -63,6 +63,7 @@ public class ListTab1Fragment extends Fragment {
         headers.put("Authorization", "Bearer " + token);
 
         String URI = "http://10.0.2.2:8000/api/pasien/getRekamMedis";
+        //String URI = "http://192.168.43.68:8000/api/pasien/getRekamMedis";
         mVolleyService.getDataHeadersVolley("GETREKAMMEDIS", URI, headers);
     }
 
