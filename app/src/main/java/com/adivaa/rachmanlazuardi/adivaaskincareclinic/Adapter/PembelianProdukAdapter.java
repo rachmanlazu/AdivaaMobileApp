@@ -1,4 +1,4 @@
-package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
+package com.adivaa.rachmanlazuardi.adivaaskincareclinic.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -7,6 +7,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Model.PembelianProdukModel;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.R;
 
 import java.util.ArrayList;
 
@@ -25,7 +28,7 @@ public class PembelianProdukAdapter extends RecyclerView.Adapter<RecyclerView.Vi
         RecyclerView.ViewHolder viewHolder = null;
         LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
 
-        View viewItem = inflater.inflate(R.layout.item_tab2_fragment, viewGroup, false);
+        View viewItem = inflater.inflate(R.layout.item_pembelian_produk_fragment, viewGroup, false);
         viewHolder = new PembelianProdukViewHolder(viewItem);
 
         return viewHolder;

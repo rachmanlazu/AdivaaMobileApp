@@ -1,4 +1,4 @@
-package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
+package com.adivaa.rachmanlazuardi.adivaaskincareclinic.Fragment;
 
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -10,12 +10,20 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.AmbilAntrianActivity;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Model.AntrianModel;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.IResult;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.ProdukActivity;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.R;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.ResevasiActivity;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.RiwayatPasienActivity;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Service.VolleyService;
 import com.android.volley.VolleyError;
 
 import org.json.JSONException;
@@ -25,6 +33,7 @@ import java.util.HashMap;
 
 public class HomeFragment extends Fragment implements View.OnClickListener {
     private CardView reserve, rekam, konsul, product;
+    //private String noWhatsapp;
 
     private IResult mResultCallback = null;
     private VolleyService mVolleyService;
@@ -71,6 +80,14 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         mVolleyService.getDataHeadersVolley("GETANTRIAN", URI, headers);
     }
 
+//    public void getWhatsAppNumber(){
+//        HashMap headers = new HashMap();
+//        headers.put("Authorization", "Bearer " + token);
+//
+//        String URI = "http://10.0.2.2:8000/api/getWhatsappNumber";
+//        mVolleyService.getDataHeadersVolley("GETWANO", URI, headers);
+//    }
+
     void initVolleyCallback() {
         mResultCallback = new IResult() {
             @Override
@@ -78,10 +95,13 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 System.out.println(response);
 
                 JSONObject data = response.getJSONObject("data");
+                //JSONObject WaNumber = response.getJSONObject("WaNumber");
 
                 Integer NoAntrianPasien = data.getInt("nomor_antrian");
                 String Jam = data.getString("jam");
                 Integer NoAntrianSaatIni = data.getInt("nomor_antrian_saat_ini");
+
+                //noWhatsapp = WaNumber.getString("no_whatsapp");
 
                 if (NoAntrianPasien==0){
                     Intent moveIntent = new Intent(getActivity(), AmbilAntrianActivity.class);
@@ -124,7 +144,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         switch (v.getId()) {
             case R.id.rekamMedis:
-                Intent moveIntent = new Intent(getActivity(), RiwayatPasien.class);
+                Intent moveIntent = new Intent(getActivity(), RiwayatPasienActivity.class);
                 startActivity(moveIntent);
                 break;
         }
@@ -161,13 +181,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     private void openWhatsApp() {
-        String smsNumber = "6287870817600"; //without '+'
+        String smsNumber = "6287870817600";
+        //getWhatsAppNumber();
+
         try {
             Intent sendIntent = new Intent("android.intent.action.MAIN");
             sendIntent.setAction(Intent.ACTION_SEND);
             sendIntent.setType("text/plain");
             sendIntent.putExtra(Intent.EXTRA_TEXT, "Dokter saya mau konsultasi");
             sendIntent.putExtra("jid", smsNumber + "@s.whatsapp.net");
+            //sendIntent.putExtra("jid", noWhatsapp + "@s.whatsapp.net");
             sendIntent.setPackage("com.whatsapp");
             startActivity(sendIntent);
         } catch (Exception e) {

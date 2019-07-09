@@ -1,4 +1,4 @@
-package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
+package com.adivaa.rachmanlazuardi.adivaaskincareclinic.Fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.IResult;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.R;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Service.VolleyService;
 import com.android.volley.VolleyError;
 
 import org.json.JSONException;

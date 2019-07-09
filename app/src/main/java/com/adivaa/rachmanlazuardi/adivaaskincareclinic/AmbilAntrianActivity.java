@@ -13,24 +13,20 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Model.AntrianModel;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Service.VolleyService;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class AmbilAntrianActivity extends AppCompatActivity {
 
     private Button btnAntrian, alertButton;
-    private TextView alertTextView, noAntrianSaatIni, jam, noAntrianPasien, jamDatang;
+    private TextView alertTextView, noAntrianSaatIni, noAntrianPasien, jamDatang;
+    //private TextView jam;
 
     private String token;
 
@@ -52,8 +48,11 @@ public class AmbilAntrianActivity extends AppCompatActivity {
         Log.d("Reservasi", "token ambil antrian " + token);
         //
 
+        //get
         noAntrianSaatIni = findViewById(R.id.noAmbilAntrian);
-        jam = findViewById(R.id.jamDatang);
+        //jam = findViewById(R.id.jamDatang);
+
+        //post
         noAntrianPasien = findViewById(R.id.antrianCust);
         jamDatang = findViewById(R.id.jam);
 
@@ -77,7 +76,7 @@ public class AmbilAntrianActivity extends AppCompatActivity {
 
                 builder.setCancelable(true);
                 builder.setTitle("Apakah anda ingin mengambil nomor antrian?");
-                builder.setMessage("Anda harus menunggu sekitar 60 menit dalam 1 antrian");
+                builder.setMessage("Anda harus menunggu sekitar 1 jam dalam 1 antrian");
 
                 builder.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
                     @Override
@@ -130,12 +129,12 @@ public class AmbilAntrianActivity extends AppCompatActivity {
                 switch (requestType) {
                     case "GETNOANTRIAN":
                         JSONObject data = response.getJSONObject("data");
-                        Log.d("kribo", String.valueOf(data.getInt("nomor_antrian_saat_ini")));
+                        //Log.d("kribo", String.valueOf(data.getInt("nomor_antrian_saat_ini")));
                         Integer NoAntrian = data.getInt("nomor_antrian_saat_ini");
-                        String Jam = data.getString("jam");
+                        //String Jam = data.getString("jam");
 
                         noAntrianSaatIni.setText(NoAntrian.toString());
-                        jam.setText(Jam.toString() + ":00");
+                        //jam.setText(Jam.toString() + ":00");
                         break;
 
                     case "POSTANTRIAN":

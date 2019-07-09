@@ -17,6 +17,9 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Fragment.HomeFragment;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Fragment.ProfileFragment;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Service.VolleyService;
 import com.android.volley.VolleyError;
 
 import org.json.JSONException;

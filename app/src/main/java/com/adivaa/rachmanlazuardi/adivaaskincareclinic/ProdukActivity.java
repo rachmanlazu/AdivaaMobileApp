@@ -10,9 +10,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.MenuItem;
-import android.widget.ListView;
 import android.widget.TextView;
 
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Adapter.ProdukAdapter;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Model.ProdukModel;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Service.VolleyService;
 import com.android.volley.VolleyError;
 
 import org.json.JSONArray;

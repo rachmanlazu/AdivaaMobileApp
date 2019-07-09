@@ -1,7 +1,8 @@
-package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
+package com.adivaa.rachmanlazuardi.adivaaskincareclinic.Service;
 
 import android.content.Context;
 
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.IResult;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;

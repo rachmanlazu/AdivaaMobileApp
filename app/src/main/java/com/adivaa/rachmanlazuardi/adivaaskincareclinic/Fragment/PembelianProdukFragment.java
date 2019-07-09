@@ -1,9 +1,8 @@
-package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
+package com.adivaa.rachmanlazuardi.adivaaskincareclinic.Fragment;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,10 +11,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.IResult;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Adapter.PembelianProdukAdapter;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Model.PembelianProdukModel;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.R;
+import com.adivaa.rachmanlazuardi.adivaaskincareclinic.Service.VolleyService;
 import com.android.volley.VolleyError;
 
 import org.json.JSONArray;
@@ -25,8 +27,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class Tab2Fragment extends Fragment {
-    private static final String TAG = "Tab2Fragment";
+public class PembelianProdukFragment extends Fragment {
+    private static final String TAG = "PembelianProdukFragment";
 
     private RecyclerView recyclerView;
 
@@ -40,7 +42,7 @@ public class Tab2Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.tab2_fragment,container,false);
+        View view = inflater.inflate(R.layout.pembelian_produk_fragment,container,false);
 
         recyclerView = view.findViewById(R.id.list_pembelian_produk);
 

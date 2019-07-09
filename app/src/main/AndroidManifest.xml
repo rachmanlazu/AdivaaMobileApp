@@ -16,7 +16,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".RiwayatPasien"/>
+        <activity android:name=".RiwayatPasienActivity"/>
         <activity android:name=".ItemProdukActivity" />
         <activity android:name=".ProdukActivity" />
         <activity android:name=".LoginActivity"/>
@@ -27,11 +27,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".RekamMedisActivity" />
         <activity android:name=".ResevasiActivity" />
         <activity android:name=".AmbilAntrianActivity" />
     </application>

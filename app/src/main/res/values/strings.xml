@@ -29,4 +29,8 @@
     <string name="tab_text_1">Tab1</string>
     <string name="tab_text_2">Tab2</string>
     <string name="section_format">Hello World from section: %1$d</string>
+    <string name="no_antrian_saat_ini">0</string>
+    <string name="waktu_operasional">Waktu Operasional</string>
+    <string name="jam_operasional">Senin-Sabtu : 09.00-17.00</string>
+    <string name="nama_produk">Nama :</string>
 </resources>

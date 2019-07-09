@@ -1,4 +1,4 @@
-package com.adivaa.rachmanlazuardi.adivaaskincareclinic;
+package com.adivaa.rachmanlazuardi.adivaaskincareclinic.Model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
